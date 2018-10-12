@@ -81,10 +81,7 @@ uRuido=double(2*pi*((rlabios)^2)*sqrt(2*pruido));
 uRuido=abs(uRuido);
 uRuido=uRuido*5;
 
-% uEspec=double(2*pi*((rlabios)^2)*sqrt(2*pespec));
-% uEspec=uEspec*1000;
-% uEspec=abs(uEspec);
-% 
+
 %Señal para Simulink
 pM= [t pt]; %Arreglo para procesar señal en simulink
 
