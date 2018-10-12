@@ -5,7 +5,6 @@
 clc;
 clear all;
 close all;
-%%Puto el que lee esto
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                         %%%SEÑAL DEL MICRÓFONO%%%
