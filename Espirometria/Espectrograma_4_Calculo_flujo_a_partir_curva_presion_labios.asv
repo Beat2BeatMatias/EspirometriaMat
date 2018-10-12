@@ -1,6 +1,4 @@
-%Sacar decibeles **************
-% vector_aux2=10*exp(vector_aux2/20)-1;
-%******************************
+
 
 %Pasar la curva de presión de los labios generada anteriormente a flujo
 ut=double(2*pi*(rlabios^2)*sqrt(2*vector_aux2));
