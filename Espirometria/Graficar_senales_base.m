@@ -9,15 +9,17 @@ close all;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                         %%%SEÑAL DEL MICRÓFONO%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-voz=load('vozmg-7.txt'); %Arreglo de la señal sensada por el micrófono y el tiempo
+voz=load('vozmg-3.txt'); %Arreglo de la señal sensada por el micrófono y el tiempo
 t=voz(:,2);
 t=t./1000; %Tiempo de la señal sensada
 pt=voz(:,1); %Señal sensada
-% pt=pt.*(1/32767);%escalado para convertirlo en señal de presión 
+% pt=pt.*(1/32767);%escalado para convertirlo en señal de presión
+ptOriginal=pt;
 ptR=pt(1:132300);%Recorte de la señal que corresponde los 3 segundos de ruido.
 ptRA=abs(ptR);
 ptRP=promedioMax(ptRA);
 ptRP2=mean(ptRA);
+ptMax=max(pt)*0.01;
 % ptRM=max(ptRA);
 % pRuido=ptRP/ptRM*100;
 
@@ -33,7 +35,8 @@ t=t(1:length(pt));
 % vPtRP=ones(1,length(ptR))*ptRP;
 % vPtRM=ones(1,length(ptR))*ptRM;
 vPRuido=ones(1,length(pt))*ptRP;
-vPRuido2=ones(1,length(pt))*ptRP2;
+vPRuido2=ones(1,length(pt))*ptRP2*2;
+vPRuido3=ones(1,length(pt))*ptMax;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                        %%%CONSTANTES Y VARIABLES%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -81,7 +84,6 @@ uRuido=double(2*pi*((rlabios)^2)*sqrt(2*pruido));
 uRuido=abs(uRuido);
 uRuido=uRuido*5;
 
-
 %Señal para Simulink
 pM= [t pt]; %Arreglo para procesar señal en simulink
 
@@ -95,6 +97,7 @@ hold on
 % plot(t(1:130500),vPtRM);
 plot(t,vPRuido,'r--');
 plot(t,vPRuido2,'g--');
+plot(t,vPRuido3,'m--');
 
 
 subplot(3,1,2)

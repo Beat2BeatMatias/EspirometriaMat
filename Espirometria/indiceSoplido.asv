@@ -11,7 +11,7 @@ iTemp=132300;
 for j=1:inter
     sBuffer=sa(iTemp:iTemp+L);
     p=mean(sBuffer);
-    if(p>limite*2.5)
+    if(p>vMax*0.01)
         indI=iTemp+L/2;
         break;
     end

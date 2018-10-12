@@ -9,7 +9,11 @@ close all;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                         %%%SEÑAL DEL MICRÓFONO%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<<<<<<< HEAD
 voz=load('vozl.txt'); %Arreglo de la señal sensada por el micrófono y el tiempo
+=======
+voz=load('voz.txt'); %Arreglo de la señal sensada por el micrófono y el tiempo
+>>>>>>> 9cea9217ab4542756b94c52425d34e34b10f5df4
 t=voz(:,2);
 t=t./1000; %Tiempo de la señal sensada
 pt=voz(:,1); %Señal sensada
@@ -18,6 +22,10 @@ ptR=pt(1:132300);%Recorte de la señal que corresponde los 3 segundos de ruido.
 ptRA=abs(ptR);
 ptRP=promedioMax(ptRA);
 ptRP2=mean(ptRA);
+<<<<<<< HEAD
+=======
+ptMax=max(ptRA)*0.01;
+>>>>>>> 9cea9217ab4542756b94c52425d34e34b10f5df4
 % ptRM=max(ptRA);
 % pRuido=ptRP/ptRM*100;
 
@@ -34,6 +42,10 @@ t=t(1:length(pt));
 % vPtRM=ones(1,length(ptR))*ptRM;
 vPRuido=ones(1,length(pt))*ptRP;
 vPRuido2=ones(1,length(pt))*ptRP2;
+<<<<<<< HEAD
+=======
+vPRuido3=ones(1,length(pt))*ptMax;
+>>>>>>> 9cea9217ab4542756b94c52425d34e34b10f5df4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                        %%%CONSTANTES Y VARIABLES%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -81,7 +93,10 @@ uRuido=double(2*pi*((rlabios)^2)*sqrt(2*pruido));
 uRuido=abs(uRuido);
 uRuido=uRuido*5;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cea9217ab4542756b94c52425d34e34b10f5df4
 %Señal para Simulink
 pM= [t pt]; %Arreglo para procesar señal en simulink
 
