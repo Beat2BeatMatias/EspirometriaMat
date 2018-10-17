@@ -1,10 +1,10 @@
 function pCOPER=promedioCOPER(s)
-
-i=floor(length(s)/1323);%numero de veces que calculara el umbral(nºtramas)
+L=441;
+i=floor(length(s)/L);%numero de veces que calculara el umbral(nºtramas)
 
 m=2; %factor de índice de inicio, empieza por 2 porque necesitaremos dato(x-1)
 
-n=1325;% factor de índice final
+n=L+2;% factor de índice final
  %esto contara las ventanas consecutivas sin info. para detectar final pronunciación.
 longPal=1;
 t=0;
