@@ -25,19 +25,15 @@ ptMax=max(pt)*0.01;
 
 %se calcula el indice de corte en base al promedio de ruido. Método basado
 %en la intensidad del sonido.
-% [ic,icf]=indiceSoplido(pt,ptRP2);
-% pto=pt;
-% to=t;
-% pt=pt(ic:icf);
-% t=t(1:length(pt));
-
-%Otro metodo de recorte
-figure, plot(t(1:length(ptOriginal)),ptOriginal);
-ptN=ptOriginal/max(ptOriginal);
-pt=detectorExtremos(ptN,0.01);
-pt=pt*max(ptOriginal);
-pt=pt';
+[ic,icf]=indiceSoplido(pt,ptRP2);
+pto=pt;
+to=t;
+pt=pt(ic:icf);
 t=t(1:length(pt));
+%Otro metodo de recorte
+ptN=ptOriginal/max(pt)
+pt=detectorExtremos(ptN,0.005);
+
 
 %Construcción de vectores para graficarlos.
 % vPtRP=ones(1,length(ptR))*ptRP;
