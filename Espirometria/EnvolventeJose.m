@@ -50,7 +50,7 @@ uSumaFr=uSumaF-promedioFinal;
 uSumaFr=cortarVectorUmbral(uSumaFr,promedioFinal);
 
 tEspiracion=length(uSumaFr)*(1/44100);
-uSumaFd=derivada(uSumaFr,1/44100);
+% uSumaFd=derivada(uSumaFr,1/44100);
 volumen=trapecio(uSumaFr,1/44100);
 if(~(length(volumen)<44100))
     FEV1=volumen(44100);
