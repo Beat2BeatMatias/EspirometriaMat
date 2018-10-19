@@ -14,8 +14,9 @@ t=voz(:,2);
 t=t./1000; %Tiempo de la señal sensada
 pt=voz(:,1); %Señal sensada
 % pt=pt.*(1/32767);%escalado para convertirlo en señal de presión
+mRuido=4*44100;
 ptOriginal=pt;
-ptR=pt(1:132300);%Recorte de la señal que corresponde los 3 segundos de ruido.
+ptR=pt(1:mRuido);%Recorte de la señal que corresponde los 3 segundos de ruido.
 ptRA=abs(ptR);
 ptRP=promedioMax(ptRA);
 ptRP2=mean(ptRA);
@@ -32,8 +33,9 @@ ptMax=max(pt)*0.01;
 % t=t(1:length(pt));
 
 %Otro metodo de recorte
-figure, plot(t(1:length(ptOriginal)),ptOriginal);
+figure, plot(t,ptOriginal);
 ptN=ptOriginal/max(ptOriginal);
+ptN=ptN(mRuido:end);
 pt=detectorExtremos(ptN,0.01);
 pt=pt*max(ptOriginal);
 pt=pt';
