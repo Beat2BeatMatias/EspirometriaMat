@@ -14,7 +14,7 @@ if ne < 2, % GFE is only the signal power
     
     for i = 1:n,
         src = randn(nw, 1); % noise
-        Xhat(:,i) = w .* filter( 1, [-1; A(:,i)], sqrt(GFE(i)*src));
+        Xhat(:,i) = w .* filter( 1, [-1; A(:,i)], sqrt(GFE(i))*src);
 %         Xhat(:,i) = w.*(sqrt(GFE(i)));
     end
     

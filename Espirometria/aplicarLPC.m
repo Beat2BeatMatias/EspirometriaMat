@@ -7,9 +7,8 @@
 Fs=44100;
 T=1/Fs;
 m30=0.030/T;
-voz=load('ejemploPalabra.txt');
-% pt=voz(:,1);
-pt=u;
+% voz=load('ejemploPalabra.txt');
+pt=plabios;
 %Ventana Hamming
 t=0:m30-1;
 h=0.53836-0.46164*cos(2*pi*t/m30);
@@ -54,7 +53,11 @@ fc=3;                            %Frecuencia de corte del filtro
 Wn=fc/(Fs/2);                    %Frecuencia de corte normalizada
 [a,b]=butter(3,Wn,'low');        %Cálculo de los coeficientes del filtro pasabajo
 
-x=xLpc32;
+x=xLpc32+xLpc16+xLpc8+xLpc4+xLpc2;
+x=double(2*pi*((rlabios)^2)*sqrt(2*x));
+x=abs(x);
+x=x*5;%constante
+n=length(x);
 xF = filter(a,b,x);
 xF = abs(xF);
 limite=limiteCorte(xF,0);
@@ -62,7 +65,7 @@ xFr=xF-limite;
 xFr=cortarVectorUmbral(xFr,limite);
 volumen=trapecio(xFr,0.000023);
 %% Gráfico
-figure, plot(abs(x));
+figure, plot(real(x));
 figure, plot(xFr);
 figure, plot(volumen,xFr);
 
