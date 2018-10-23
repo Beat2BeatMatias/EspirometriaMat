@@ -9,7 +9,7 @@ close all;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                         %%%SEÑAL DEL MICRÓFONO%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-voz=load('vozmg-6.txt'); %Arreglo de la señal sensada por el micrófono y el tiempo
+voz=load('voz.txt'); %Arreglo de la señal sensada por el micrófono y el tiempo
 t=voz(:,2);
 t=t./1000; %Tiempo de la señal sensada
 pt=voz(:,1); %Señal sensada
