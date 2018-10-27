@@ -5,9 +5,6 @@
 %         double[] a={-1,1.5,-0.5};
 %         double g=5;
 
-w=[0.1,0.5,0.7,0.1];
-src=[0.1,-0.1,0.5,-0.5];
-g=5;
-b=1;
-a=[-1,1.5,-0.5];
-ejemploSenial = filter( b, a, g*src).*w;
+prueba=[1,2,3,4,5,6];
+w=[0.2,0.5,0.2];
+X=matrizOLA(prueba,w);
