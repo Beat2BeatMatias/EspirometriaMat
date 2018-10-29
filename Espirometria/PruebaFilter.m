@@ -5,6 +5,5 @@
 %         double[] a={-1,1.5,-0.5};
 %         double g=5;
 
-prueba=[1,2,3,4,5,6];
-w=[0.2,0.5,0.2];
-X=matrizOLA(prueba,w);
+prueba=[[1;2;3;4],[5;6;7;8]];
+x=pressStack(prueba);
