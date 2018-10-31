@@ -53,9 +53,9 @@ fc=3;                            %Frecuencia de corte del filtro
 Wn=fc/(Fs/2);                    %Frecuencia de corte normalizada
 [a,b]=butter(3,Wn,'low');        %Cálculo de los coeficientes del filtro pasabajo
 
-x=xLpc32+xLpc16+xLpc8+xLpc4+xLpc2;
+x=xLpc2+xLpc8+xLpc16+xLpc32;
 
-I=multPporH(pt,C,D,v);
+I=multPporH(x,C,D,v);
 plabios=I;
 plabios=abs(plabios);
 
@@ -70,7 +70,7 @@ xFr=xF-limite;
 xFr=cortarVectorUmbral(xFr,limite);
 volumen=trapecio(xFr,0.000023);
 %% Gráfico
-figure, plot(real(x));
+figure, plot(x);
 figure, plot(xFr);
 figure, plot(volumen,xFr);
 

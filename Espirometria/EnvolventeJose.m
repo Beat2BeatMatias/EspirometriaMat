@@ -29,8 +29,8 @@ frec=((0:max(size(pt))-1)/(max(size(pt))-1))*Fs; %Vector para el eje de frecuenc
 uEnvolvente = hilbert(u);
 uREnvolvente = hilbert(uRuido);
 %Cálculo de la suma de la envolvente y la señal original (señal suma)
-uSuma = abs(uEnvolvente) + u;
-uSumaR= abs(uREnvolvente) + uRuido;
+uSuma = abs(uEnvolvente);
+uSumaR= abs(uREnvolvente);
 
 
 

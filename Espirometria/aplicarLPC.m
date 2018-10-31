@@ -53,7 +53,7 @@ fc=3;                            %Frecuencia de corte del filtro
 Wn=fc/(Fs/2);                    %Frecuencia de corte normalizada
 [a,b]=butter(3,Wn,'low');        %Cálculo de los coeficientes del filtro pasabajo
 
-x=xLpc8;
+x=xLpc2+xLpc4+xLpc8+xLpc16+xLpc32;
 
 I=multPporH(x,C,D,v);
 plabios=I;
