@@ -14,7 +14,7 @@ t=voz(:,2);
 t=t./1000; %Tiempo de la señal sensada
 pt=voz(:,1); %Señal sensada
 % pt=pt.*(1/32767);%escalado para convertirlo en señal de presión
-mRuido=4*44100;
+mRuido=3*44100; %Segundos que la aplicación toma antes de la expiración
 ptOriginal=pt;
 ptR=pt(1:mRuido);%Recorte de la señal que corresponde los 3 segundos de ruido.
 ptRA=abs(ptR);
@@ -36,7 +36,7 @@ ptMax=max(pt)*0.01;
 figure, plot(t,ptOriginal);
 ptN=ptOriginal/max(ptOriginal);
 ptN=ptN(mRuido:end);
-pt=detectorExtremos(ptN,0.01);
+pt=detectorExtremos(ptN,0.005);
 pt=pt*max(ptOriginal);
 pt=pt';
 t=t(1:length(pt));
@@ -87,12 +87,12 @@ pruido=Iruido;
 
 u=double(2*pi*((rlabios)^2)*sqrt(2*plabios));
 u=abs(u);
-u=u*5;%constante
+u=u*13;%constante
 n=length(u);
 
 uRuido=double(2*pi*((rlabios)^2)*sqrt(2*pruido));
 uRuido=abs(uRuido);
-uRuido=uRuido*5;
+uRuido=uRuido*13;
 
 %Señal para Simulink
 pM= [t pt]; %Arreglo para procesar señal en simulink
