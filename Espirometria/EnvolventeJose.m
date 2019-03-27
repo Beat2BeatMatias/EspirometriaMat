@@ -66,6 +66,9 @@ tdS=downsample(t,4);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %plot(t, pt);
 figure,plot(volumen, uSumaFr,'b-')
+xlabel('volume');
+ylabel('flow');
+title('Hilbert envelope')
 figure,plot(uSumaF,'g-')
 hold on
 plot(promedioS)

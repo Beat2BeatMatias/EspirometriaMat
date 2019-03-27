@@ -14,6 +14,7 @@ function R=Recorte_Curva(curva)
     derivada_curva=derivada(curva,0.000023);
     
     contador=0;
+    posicion=1;
     n=1;
 
     for i=1:length(derivada_curva)

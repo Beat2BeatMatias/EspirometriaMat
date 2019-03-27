@@ -1,0 +1,5 @@
+Graficar_senales_base
+EnvolventeJose
+Spectrogram_1_STFT_vector_unidimensional
+Spectrogram_2_Generacion_curva_a_partir_resonancias
+Spectrogram_3_Calculo_flujo_a_partir_curva_presion_labios

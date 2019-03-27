@@ -61,7 +61,7 @@ plabios=abs(plabios);
 
 x=double(2*pi*((rlabios)^2)*sqrt(2*plabios));
 x=abs(x);
-x=x*5;%constante
+x=x*14;%constante
 n=length(x);
 xF = filter(a,b,x);
 xF = abs(xF);
@@ -73,4 +73,6 @@ volumen=trapecio(xFr,0.000023);
 figure, plot(x);
 figure, plot(xFr);
 figure, plot(volumen,xFr);
-
+xlabel('volume');
+ylabel('flow');
+title('LPC')
