@@ -40,12 +40,12 @@ uSumaFR = filter(b,a,uSumaR);
 
 %Se calcula el ruido en "x" e "y" y se lo resta a la señal original
 vPromedio=uSumaFR;
-maxLoc=max(vPromedio);
+%maxLoc=max(vPromedio);
 vPromedio=abs(vPromedio);
 promedio1=mean(vPromedio);
 promedioFinal=mean([promedio1 vPromedio(end)]);
 promedioFinal=limiteCorte(uSumaF,promedioFinal);
-promedioS=ones(1,length(uSumaF))*promedioFinal;
+promedioS=ones(1,length(uSumaF))*promedioFinal;  %Se usa para graficar la linea umbral que se usa para disminuir el nivel de uSumaF
 uSumaFr=uSumaF-promedioFinal;
 uSumaFrFinal=cortarVectorUmbral(uSumaFr,promedioFinal);
 
