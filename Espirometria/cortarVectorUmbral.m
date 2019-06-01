@@ -1,4 +1,5 @@
 function [A,iCorte]=cortarVectorUmbral(S,p)
+%Señal resultante A
 A=0;
 N=length(S);
 [m,ind]=max(S);

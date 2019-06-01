@@ -9,7 +9,7 @@ close all;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                         %%%SEÑAL DEL MICRÓFONO%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-voz=load('voz.txt'); %Arreglo de la señal sensada por el micrófono y el tiempo
+voz=load('vozmg-7.txt'); %Arreglo de la señal sensada por el micrófono y el tiempo
 t=voz(:,2);
 t=t./1000; %Tiempo de la señal sensada
 pt=voz(:,1); %Señal sensada
@@ -57,7 +57,7 @@ D=0.40;          %Largo del brazo, aproximación de la distancia de la boca al ce
 C=0.6;          %Circunferencia de la cabeza [m]
 v=340;          %Velocidad del sonido [m/s]
 % msDelay=D/v*1000;   %Adelanto en [ms]
-G=double(D/C);          %Ganancia de la integral.
+G=double(D/C);        %Ganancia de la integral.
 rlabios=0.02;   %Radio de apertura de la boca en el estudio.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,12 +86,13 @@ pruido=Iruido;
 %Cálculo del flujo
 
 u=double(2*pi*((rlabios)^2)*sqrt(2*plabios));
-u=abs(u);
+aux=u; %Prueba
+u=abs(u); %Porqué calcula valor absoluto de valores positivos?
 u=u*13;%constante
 n=length(u);
 
 uRuido=double(2*pi*((rlabios)^2)*sqrt(2*pruido));
-uRuido=abs(uRuido);
+uRuido=abs(uRuido); %Porqué calcula valor absoluto de valores positivos?
 uRuido=uRuido*13;
 
 %Señal para Simulink
@@ -101,7 +102,7 @@ pM= [t pt]; %Arreglo para procesar señal en simulink
                             %%%GRÁFICOS%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure, subplot(3,1,1)
-plot(t,pt),title('Señal micrófono')
+plot(t,pt),title('Señal micrófono - p(t)')
 hold on
 % plot(t(1:130500),vPtRP);
 % plot(t(1:130500),vPtRM);
@@ -113,7 +114,7 @@ plot(t,vPRuido3,'m--');
 subplot(3,1,2)
 hold on 
 plot(t,plabios)
-title('Señal procesada')
+title('Señal de presión sonora en los labios - plips(t)')
 hold off
 subplot(3,1,3)
-plot(t,u), title('Estimación del flujo de aire en los labios')
+plot(t,u), title('Flujo de aire en los labios - ulips(t)')

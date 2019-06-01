@@ -47,16 +47,16 @@ promedioFinal=mean([promedio1 vPromedio(end)]);
 promedioFinal=limiteCorte(uSumaF,promedioFinal);
 promedioS=ones(1,length(uSumaF))*promedioFinal;
 uSumaFr=uSumaF-promedioFinal;
-uSumaFr=cortarVectorUmbral(uSumaFr,promedioFinal);
+uSumaFrFinal=cortarVectorUmbral(uSumaFr,promedioFinal);
 
-tEspiracion=length(uSumaFr)*(1/44100);
+tEspiracion=length(uSumaFrFinal)*(1/44100);
 % uSumaFd=derivada(uSumaFr,1/44100);
-volumen=trapecio(uSumaFr,1/44100);
+volumen=trapecio(uSumaFrFinal,1/44100);
 if(~(length(volumen)<44100))
     FEV1=volumen(44100);
 end
 %Señal suma filtrada y submuestreada
-uSumaFdS=downsample(uSumaFr,4);
+uSumaFdS=downsample(uSumaFrFinal,4);
 
 %Vector tiempo submuestreado
 tdS=downsample(t,4);              
@@ -65,14 +65,14 @@ tdS=downsample(t,4);
                                 %% GRÁFICOS %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %plot(t, pt);
-figure,plot(volumen, uSumaFr,'b-')
+figure,plot(volumen, uSumaFrFinal,'b-')
 xlabel('volume');
 ylabel('flow');
 title('Hilbert envelope')
 figure,plot(uSumaF,'g-')
 hold on
 plot(promedioS)
-plot(uSumaFr,'m-')
+plot(uSumaFrFinal,'m-')
 figure, plot(volumen);
 figure, plot(t(1:length(volumen)),volumen);
 

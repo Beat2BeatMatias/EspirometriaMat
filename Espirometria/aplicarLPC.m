@@ -7,8 +7,8 @@
 Fs=44100;
 T=1/Fs;
 m30=0.030/T;
-% voz=load('ejemploPalabra.txt');
-% pt=ptOriginal;
+voz=load('vozmg-7.txt');
+pt=ptOriginal;
 %Ventana Hamming
 t=0:m30-1;
 h=0.53836-0.46164*cos(2*pi*t/m30);
